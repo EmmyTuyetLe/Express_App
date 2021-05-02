@@ -1,0 +1,22 @@
+{
+  "name": "hw_week_5",
+  "version": "1.0.0",
+  "description": "This is a REST API",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EmmyTuyetLe/Express_App.git"
+  },
+  "author": "Emmy Le",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EmmyTuyetLe/Express_App/issues"
+  },
+  "homepage": "https://github.com/EmmyTuyetLe/Express_App#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
