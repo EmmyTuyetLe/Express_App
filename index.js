@@ -42,7 +42,7 @@ return res.status(200).json({message: 'new post created'})
 app.get('/posts/:id',(req, res)=>{
     //fetch req.params.id
     let id = req.params.id;
-    //find user wth id
+    //find post wth id
    let foundPost = posts.find(post =>{
        return String(post.id) === id;
     })
