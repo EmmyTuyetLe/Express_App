@@ -29,13 +29,14 @@ app.post('/posts',(req,res)=>{
  //save new post to existing database
  posts.push(req.body.newPost);
   //save updated data to posts.json
- console.log({ posts })
 // stringify the json data
 let stringedData =JSON.stringify(posts, null, 2);
 fs.writeFile('posts.json', stringedData, function(err){
     if (err){
         return res.status(500).json({message: err})
     }
+})
+return res.status(200).json({message: 'new post created'})
 })
 // fetch single post
 app.get('/posts/:id',(req, res)=>{
@@ -46,17 +47,14 @@ app.get('/posts/:id',(req, res)=>{
        return String(post.id) === id;
     })
     if(foundPost){
-        return res.status(200).json({post:foundPost})   
+        return res.status(200).json({ post:foundPost })   
     }else{
-        return res.status(404),json({ message: "user not found"})
+        return res.status(404).json({ message: "user not found"})
     }
 })
 console.log(foundPost)
 
-//rewrite the file posts.json
  //send back a response to client
- return res.status(200).json({message: 'new post created'})
-})
 app.listen(3000, function(){
     console.log('server is up and running')
 })
