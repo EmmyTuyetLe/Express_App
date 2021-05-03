@@ -52,8 +52,6 @@ app.get('/posts/:id',(req, res)=>{
         return res.status(404).json({ message: "user not found"})
     }
 })
-console.log(foundPost)
-
  //send back a response to client
 app.listen(3000, function(){
     console.log('server is up and running')
