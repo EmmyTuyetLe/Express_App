@@ -49,7 +49,20 @@ app.get('/posts/:id',(req, res)=>{
     if(foundPost){
         return res.status(200).json({ post:foundPost })   
     }else{
-        return res.status(404).json({ message: "user not found"})
+        return res.status(404).json({ message: "post not found"})
+    }
+})
+app.put('/posts/:id',(req, res)=>{
+    //fetch req.params.id
+    let id = req.params.id;
+    //find post wth id
+   let foundPost = posts.find(post =>{
+       return String(post.id) === id;
+    })
+    if(foundPost){
+        return res.status(200).json({ post:foundPost })   
+    }else{
+        return res.status(404).json({ message: "post not found"})
     }
 })
  //send back a response to client
