@@ -52,6 +52,7 @@ app.get('/posts/:id',(req, res)=>{
         return res.status(404).json({ message: "post not found"})
     }
 })
+//update an existing post
 app.put('/posts/:id',(req, res)=>{
     //fetch req.params.id
     let id = req.params.id;
