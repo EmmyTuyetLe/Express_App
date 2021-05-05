@@ -60,11 +60,17 @@ app.put('/posts/:id',(req, res)=>{
    let foundPost = posts.find(post =>{
        return String(post.id) === id;
     })
-    if(foundPost){
-        return res.status(200).json({ post:foundPost })   
-    }else{
-        return res.status(404).json({ message: "post not found"})
+    let postIndex = posts.indexOf(foundPost)
+posts[postIndex].title = req.body.title;
+posts[postIndex].body = req.body.body;
+console.log(posts)
+    let stringedData =JSON.stringify(posts, null, 2);
+fs.writeFile('posts.json', stringedData, function(err){
+    if (err){
+        return res.status(500).json({message: err})
     }
+})
+return res.status(200).json({message: 'post updated'})
 })
  //send back a response to client
 app.listen(3000, function(){
