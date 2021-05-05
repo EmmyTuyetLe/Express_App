@@ -60,10 +60,16 @@ app.put('/posts/:id',(req, res)=>{
    let foundPost = posts.find(post =>{
        return String(post.id) === id;
     })
+    // go through the posts array until you find the matching post
     let postIndex = posts.indexOf(foundPost)
+    //update the post title
 posts[postIndex].title = req.body.title;
+//update the post body
 posts[postIndex].body = req.body.body;
+//push the new updates to existing posts
 console.log(posts)
+  //save updated data to posts.json
+// stringify the json data
     let stringedData =JSON.stringify(posts, null, 2);
 fs.writeFile('posts.json', stringedData, function(err){
     if (err){
